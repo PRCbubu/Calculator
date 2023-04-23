@@ -46,29 +46,169 @@
                 android:textColor="@color/Indigo4"
                 android:textAlignment="textEnd"
                 android:textSize="@dimen/_50ssp"
-
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/Numpad"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/CalculatorDisplay"
-        android:layout_marginTop="@dimen/_20sdp"
+        android:orientation="horizontal"
+        android:padding="@dimen/_2sdp"
+        android:layout_marginTop="@dimen/_250sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_100sdp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <GridLayout
+        android:id="@+id/Numpad"
+        android:layout_width="@dimen/_220sdp"
+        android:layout_height="@dimen/_240sdp"
+        android:orientation="vertical"
+        android:rowCount="4"
+        android:columnCount="3"
         android:layout_marginStart="@dimen/_10sdp"
         android:layout_marginEnd="@dimen/_10sdp"
-        android:layout_marginBottom="@dimen/_50sdp"
-        app:cardCornerRadius="@dimen/_20sdp"
-        app:cardElevation="@dimen/_5sdp">
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_300sdp"
+        android:foregroundGravity="fill">
 
-        <GridLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <TextView
+            android:id="@+id/Seven"
+            android:text="7"
             android:layout_gravity="fill"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:textAlignment="center"
+            android:textSize="@dimen/_25sdp"
+            android:padding="@dimen/_10sdp"
+            android:background="@drawable/typingcircle"/>
+        <TextView
+            android:id="@+id/Four"
+            android:text="4"
+            android:layout_gravity="fill"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:textAlignment="center"
+            android:textSize="@dimen/_25sdp"
+            android:padding="@dimen/_10sdp"
+            android:background="@drawable/typingcircle"/>
+        <TextView
+            android:id="@+id/One"
+            android:text="1"
+            android:layout_gravity="fill"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:textAlignment="center"
+            android:textSize="@dimen/_25sdp"
+            android:padding="@dimen/_10sdp"
+            android:background="@drawable/typingcircle"/>
+        <TextView
+            android:id="@+id/point"
+            android:text="."
+            android:layout_gravity="fill"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:textAlignment="center"
+            android:textSize="@dimen/_25sdp"
+            android:padding="@dimen/_10sdp"
+            android:background="@drawable/typingcircle"/>
+        <TextView
+            android:id="@+id/Eight"
+            android:text="8"
+            android:layout_gravity="fill"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:textAlignment="center"
+            android:textSize="@dimen/_25sdp"
+            android:padding="@dimen/_10sdp"
+            android:background="@drawable/typingcircle"/>
+        <TextView
+            android:id="@+id/Five"
+            android:text="5"
+            android:layout_gravity="fill"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:textAlignment="center"
+            android:textSize="@dimen/_25sdp"
+            android:padding="@dimen/_10sdp"
+            android:background="@drawable/typingcircle"/>
+        <TextView
+            android:id="@+id/Two"
+            android:text="2"
+            android:layout_gravity="fill"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:textAlignment="center"
+            android:textSize="@dimen/_25sdp"
+            android:padding="@dimen/_10sdp"
+            android:background="@drawable/typingcircle"/>
+        <TextView
+            android:id="@+id/Zero"
+            android:text="0"
+            android:layout_gravity="fill"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:textAlignment="center"
+            android:textSize="@dimen/_25sdp"
+            android:padding="@dimen/_10sdp"
+            android:background="@drawable/typingcircle"/>
+        <TextView
+            android:id="@+id/Ninet"
+            android:text="9"
+            android:layout_gravity="fill"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:textAlignment="center"
+            android:textSize="@dimen/_25sdp"
+            android:padding="@dimen/_10sdp"
+            android:background="@drawable/typingcircle"/>
+        <TextView
+            android:id="@+id/Six"
+            android:text="6"
+            android:layout_gravity="fill"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:textAlignment="center"
+            android:textSize="@dimen/_25sdp"
+            android:padding="@dimen/_10sdp"
+            android:background="@drawable/typingcircle"/>
+        <TextView
+            android:id="@+id/Three"
+            android:text="3"
+            android:layout_gravity="fill"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:textAlignment="center"
+            android:textSize="@dimen/_25sdp"
+            android:padding="@dimen/_10sdp"
+            android:background="@drawable/typingcircle"/>
+        <TextView
+            android:id="@+id/Brackets"
+            android:text="()"
+            android:layout_gravity="fill"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:textAlignment="center"
+            android:textSize="@dimen/_25sdp"
+            android:padding="@dimen/_10sdp"
+            android:background="@drawable/typingcircle"/>
 
-    </androidx.cardview.widget.CardView>
+
+
+    </GridLayout>
+
 
 
 </RelativeLayout>
