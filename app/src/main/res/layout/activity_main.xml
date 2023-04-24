@@ -45,6 +45,7 @@
                 android:layout_height="match_parent"
                 android:textColor="@color/Indigo4"
                 android:textAlignment="textEnd"
+                android:lineHeight="@dimen/_10ssp"
                 android:textSize="@dimen/_50ssp"/>
         </LinearLayout>
 
@@ -87,7 +88,7 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/Erase"
-                android:text="Ers"
+                android:text="ERS"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_20sdp"
                 android:layout_width="wrap_content"
@@ -101,6 +102,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/Percent"
                 android:text="%"
+                android:tag="Percent"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_20sdp"
                 android:layout_width="wrap_content"
@@ -125,6 +127,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/Divide"
                 android:text="/"
+                android:tag="Divide"
                 android:textAlignment="center"
                 android:textSize="@dimen/_20sdp"
                 android:textColor="@color/black"
@@ -140,6 +143,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/Multiply"
                 android:text="x"
+                android:tag="Multiply"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_20sdp"
                 android:layout_width="wrap_content"
@@ -154,6 +158,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/Minus"
                 android:text="-"
+                android:tag="Minus"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_20sdp"
                 android:layout_width="wrap_content"
@@ -168,6 +173,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/Add"
                 android:text="+"
+                android:tag="Add"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_20sdp"
                 android:layout_width="wrap_content"
@@ -182,6 +188,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/Equalto"
                 android:text="="
+                android:tag="Equalto"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_20sdp"
                 android:layout_width="wrap_content"
