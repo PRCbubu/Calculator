@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.cardview.widget.CardView;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -21,7 +22,6 @@ public class MainActivity extends AppCompatActivity
     {
 
     }*/
-
     private void mainDisplayNum(String num)
     {
         TextView answer = (TextView) findViewById(R.id.answer);
@@ -30,9 +30,12 @@ public class MainActivity extends AppCompatActivity
 
         if(num.contains("="))
         {
-
             secondaryDisplayNum(num);
             calculator(num);
+        }
+        if(num.isEmpty())
+        {
+            secondaryDisplayNum("");
         }
     }
 
@@ -42,6 +45,7 @@ public class MainActivity extends AppCompatActivity
         calculations.setText(num2);
     }
 
+    @SuppressLint("DefaultLocale")
     private void calculator(String num)
     {
         Double num1;
@@ -52,8 +56,41 @@ public class MainActivity extends AppCompatActivity
             num1 = Double.parseDouble(num.substring(0,num.indexOf("+")));
             num2 = Double.parseDouble(num.substring(num.indexOf("+")+1, num.indexOf("=")));
             ans = num1+num2;
+            Log.i("tag", num1+" "+num2);
+            Log.i("tag", " "+ans);
+            mainDisplayNum(String.format("%1$, .2f", ans));
+        }
+        else if(num.contains("-"))
+        {
+            num1 = Double.parseDouble(num.substring(0,num.indexOf("-")));
+            num2 = Double.parseDouble(num.substring(num.indexOf("-")+1, num.indexOf("=")));
+            ans = num1-num2;
             //Log.i("tag", ""+ans);
-            mainDisplayNum(String.valueOf(ans));
+            mainDisplayNum(String.format("%1$, .2f", ans));
+        }
+        else if(num.contains("*"))
+        {
+            num1 = Double.parseDouble(num.substring(0,num.indexOf("*")));
+            num2 = Double.parseDouble(num.substring(num.indexOf("*")+1, num.indexOf("=")));
+            ans = num1*num2;
+            //Log.i("tag", ""+ans);
+            mainDisplayNum(String.format("%1$, .2f", ans));
+        }
+        else if(num.contains("/"))
+        {
+            num1 = Double.parseDouble(num.substring(0,num.indexOf("/")));
+            num2 = Double.parseDouble(num.substring(num.indexOf("/")+1, num.indexOf("=")));
+            ans = num1/num2;
+            //Log.i("tag", ""+ans);
+            mainDisplayNum(String.format("%1$, .2f", ans));
+        }
+        else
+        {
+            num1 = Double.parseDouble(num.substring(0,num.indexOf("%")));
+            num2 = Double.parseDouble(num.substring(num.indexOf("%")+1, num.indexOf("=")));
+            ans = num1*(num2/100);
+            //Log.i("tag", ""+ans);
+            mainDisplayNum(String.format("%1$, .2f", ans));
         }
     }
 
@@ -94,7 +131,7 @@ public class MainActivity extends AppCompatActivity
             pressedNum.setOnClickListener(new View.OnClickListener()
             {
                 boolean bracketFlag = true;
-                boolean pointFlag = true;
+                final boolean pointFlag = true;
 
                 @Override
                 public void onClick(View view)
@@ -122,12 +159,12 @@ public class MainActivity extends AppCompatActivity
                         mainDisplayNum(temp[0]);
                     }
 
-                    if(Numpad.indexOf(pressedNum) == 10)
+                    /*if(Numpad.indexOf(pressedNum) == 10)
                     {
                         pointFlag = false;
                     }
                     if(!temp[0].contains(".") || temp[0].contains("+") || temp[0].contains("-") || temp[0].contains("*") || temp[0].contains("/"))
-                        pointFlag = true;
+                        pointFlag = true;*/
                 }
             });
         }
@@ -136,14 +173,14 @@ public class MainActivity extends AppCompatActivity
         {
             button.setOnClickListener(new View.OnClickListener()
             {
-                boolean operatorFlag = true;
-                TextView answer = (TextView) findViewById(R.id.answer);
+
+                final TextView answer = (TextView) findViewById(R.id.answer);
                 @Override
                 public void onClick(View view)
                 {
                     if(button.getText().equals("AC"))
                     {
-                        answer.setText("");
+                        temp[0] = "";
                         mainDisplayNum(temp[0]);
                     }
 
@@ -155,39 +192,40 @@ public class MainActivity extends AppCompatActivity
 
                     }
 
-                    if(button.getTag().equals("Add") && operatorFlag)
+                    if(button.getText().equals("+"))
                     {
                         temp[0]+= "+";
                         mainDisplayNum(temp[0]);
-                        operatorFlag = false;
                         //Toast.makeText(getApplicationContext(), "Pressed", Toast.LENGTH_SHORT).show();
                     }
-                    if(button.getTag().equals("Minus") && operatorFlag)
+                    if(button.getText().equals("-"))
                     {
                         temp[0]+= "-";
                         mainDisplayNum(temp[0]);
-                        operatorFlag = false;
                         //Toast.makeText(getApplicationContext(), "Pressed", Toast.LENGTH_SHORT).show();
                     }
-                    if(button.getTag().equals("Multiply") && operatorFlag)
+                    if(button.getText().equals("x"))
                     {
                         temp[0]+= "*";
                         mainDisplayNum(temp[0]);
-                        operatorFlag = false;
                         //Toast.makeText(getApplicationContext(), "Pressed", Toast.LENGTH_SHORT).show();
                     }
-                    if(button.getTag().equals("Divide") && operatorFlag)
+                    if(button.getText().equals("/"))
                     {
                         temp[0]+= "/";
                         mainDisplayNum(temp[0]);
-                        operatorFlag = false;
                         //Toast.makeText(getApplicationContext(), "Pressed", Toast.LENGTH_SHORT).show();
                     }
-                    if(button.getTag().equals("Equalto"))
+                    if(button.getText().equals("%"))
+                    {
+                        temp[0]+= "%";
+                        mainDisplayNum(temp[0]);
+                        //Toast.makeText(getApplicationContext(), "Pressed", Toast.LENGTH_SHORT).show();
+                    }
+                    if(button.getText().equals("="))
                     {
                         temp[0]+= "=";
                         mainDisplayNum(temp[0]);
-                        operatorFlag = true;
                         //Toast.makeText(getApplicationContext(), "Pressed", Toast.LENGTH_SHORT).show();
                         //temp[0] ="";
                     }
